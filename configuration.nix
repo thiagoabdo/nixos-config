@@ -75,7 +75,7 @@
     home.stateVersion = "23.11";
 
     home.file = {
-      ".myconfig".source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/dotfiles/myfile";
+      ".config/nvim".source	= config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/nvim/.config/nvim";
     };
   };
 
@@ -85,6 +85,7 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
+    config.common.default = "*";
   };
 
 
@@ -97,14 +98,19 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git
+    nodejs
     pkgs.alacritty
     pkgs.zsh
     pkgs.stow
     pkgs.freerdp
     pkgs.firefox
+    pkgs.gcc
+    pkgs.go
+    pkgs.cmake
+    pkgs.cargo
+    pkgs.rustc
   ];
 
   environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw 
