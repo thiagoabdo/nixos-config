@@ -58,6 +58,13 @@
     xkbVariant = "nodeadkeys";
   };
 
+  fonts = {
+    enableDefaultPackages = true;
+    packages = with pkgs; [
+      nerdfonts
+    ];
+  };
+
   # Configure console keymap
   console.keyMap = "br-abnt2";
 
@@ -111,6 +118,7 @@
     pkgs.cmake
     pkgs.cargo
     pkgs.rustc
+    zoxide
   ];
 
   environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw 
