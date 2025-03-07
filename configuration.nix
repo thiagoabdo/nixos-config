@@ -82,7 +82,7 @@
     home.stateVersion = "23.11";
 
     home.file = {
-      ".config/nvim"	= {
+      ".config/nvim" = {
         source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/nvim/.config/nvim";
         force = true;
       };
@@ -90,8 +90,8 @@
         source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/i3/.i3";
         force = true;
       };
-      ".i3status" = {
-        source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/i3/.i3status";
+      ".i3status.conf" = {
+        source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/i3/.i3status.conf";
         force = true;
       };
       ".config/tmux" = {
@@ -145,7 +145,7 @@
     pkgs.cmake
     pkgs.cargo
     pkgs.rustc
-    fzf
+    pkgs.fzf
     conky
     zoxide
   ];
