@@ -83,6 +83,8 @@
 
     home.file = {
       ".config/nvim".source	= config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/nvim/.config/nvim";
+      ".config/tmux".source	= config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/tmux/.config/tmux";
+      ".zshrc".source	= config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/zsh/.zshrc";
     };
   };
 
@@ -118,6 +120,7 @@
     pkgs.cmake
     pkgs.cargo
     pkgs.rustc
+    fzf
     zoxide
   ];
 
@@ -170,7 +173,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
   programs.neovim = {
     enable = true;
     defaultEditor = true;
