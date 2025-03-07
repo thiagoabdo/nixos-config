@@ -53,9 +53,9 @@
   };
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "br";
-    xkbVariant = "nodeadkeys";
+    variant = "nodeadkeys";
   };
 
   fonts = {
@@ -152,6 +152,8 @@
 
   environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw 
   environment.variables.TERMINAL = "alacritty";
+  services.displayManager.defaultSession = "none+i3";
+
   services.xserver = {
     enable = true;
 
@@ -159,9 +161,6 @@
       xterm.enable = false;
     };
    
-    displayManager = {
-        defaultSession = "none+i3";
-    };
 
     windowManager.i3 = {
       enable = true;
