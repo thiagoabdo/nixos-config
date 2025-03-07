@@ -86,7 +86,7 @@
         source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/nvim/.config/nvim";
         force = true;
       };
-      ".i3" = {
+      ".config/i3" = {
         source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/i3/.i3";
         force = true;
       };
