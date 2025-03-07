@@ -82,9 +82,34 @@
     home.stateVersion = "23.11";
 
     home.file = {
-      ".config/nvim".source	= config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/nvim/.config/nvim";
-      ".config/tmux".source	= config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/tmux/.config/tmux";
-      ".zshrc".source	= config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/zsh/.zshrc";
+      ".config/nvim"	= {
+        source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/nvim/.config/nvim";
+        force = true;
+      };
+      ".i3" = {
+        source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/i3/.i3";
+        force = true;
+      };
+      ".i3status" = {
+        source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/i3/.i3status";
+        force = true;
+      };
+      ".config/tmux" = {
+        source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/tmux/.config/tmux";
+        force = true;
+      };
+      ".zshrc" = { 
+        source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/zsh/.zshrc"; 
+        force = true;
+      };
+      ".p10k.zsh" = {
+        source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/zsh/.p10k.zsh"; 
+        force = true;
+      };
+      ".local/scripts/tmux-sessionizer" = {
+        source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/private_scripts/.local/scripts/tmux-sessionizer"; 
+        force = true;
+      };
     };
   };
 
@@ -121,6 +146,7 @@
     pkgs.cargo
     pkgs.rustc
     fzf
+    conky
     zoxide
   ];
 
@@ -173,7 +199,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "23.11"; # Did you read the comment?
   programs.neovim = {
     enable = true;
     defaultEditor = true;
