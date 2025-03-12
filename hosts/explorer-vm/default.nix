@@ -32,10 +32,16 @@
 # };
 #
 # Please also change your hostname accordingly:
-#:w
+#
 
 # networking.hostName = "nixos"; # Define your hostname.
 
-{ inputs, ...} : {
+{ inputs, outputs, config, ...} : {
   imports = [ ../common ./configuration.nix inputs.home-manager.nixosModules.home-manager];
+  home-manager = {
+    useUserPackages = true;
+    extraSpecialArgs = { inherit inputs outputs; };
+    users.tjota =
+      import ../../home/tjota/${config.networking.hostName}.nix;
+  };
 }
