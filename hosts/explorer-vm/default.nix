@@ -42,6 +42,7 @@
     useUserPackages = true;
     extraSpecialArgs = { inherit inputs outputs; };
     users.tjota =
-      import ../../home/tjota/${config.networking.hostName}.nix;
+      #import ../../home/tjota/${config.networking.hostName}.nix;
+      import ../../home/tjota/explorer-vm.nix;
   };
 }
