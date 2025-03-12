@@ -34,6 +34,9 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.trusted-users = ["root" "tjota"];
+
   # Set your time zone.
   time.timeZone = "America/Sao_Paulo";
 
