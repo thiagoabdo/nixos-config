@@ -36,6 +36,6 @@
 
 # networking.hostName = "nixos"; # Define your hostname.
 
-{ inputs } : {
+{ inputs, ...} : {
   imports = [ ../common ./configuration.nix inputs.home-manager.nixosModules.home-manager];
 }
