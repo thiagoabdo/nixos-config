@@ -17,7 +17,7 @@
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "24.05"; # Please read the comment before changing.
+  home.stateVersion = "23.11"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -42,17 +42,36 @@
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
-  home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
+    home.file = {
+      ".config/nvim" = {
+        source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/nvim/.config/nvim";
+        force = true;
+      };
+      ".config/i3" = {
+        source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/i3/.i3";
+        force = true;
+      };
+      ".i3status.conf" = {
+        source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/i3/.i3status.conf";
+        force = true;
+      };
+      ".config/tmux" = {
+        source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/tmux/.config/tmux";
+        force = true;
+      };
+      ".zshrc" = { 
+        source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/zsh/.zshrc"; 
+        force = true;
+      };
+      ".p10k.zsh" = {
+        source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/zsh/.p10k.zsh"; 
+        force = true;
+      };
+      ".local/scripts/tmux-sessionizer" = {
+        source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/private_scripts/.local/scripts/tmux-sessionizer"; 
+        force = true;
+      };
+    };
   };
 
   # Home Manager can also manage your environment variables through
