@@ -2,12 +2,14 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../common/standard.nix
+      ../common/window_manager/i3.nix
     ];
 
   # Bootloader.
@@ -33,7 +35,6 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  nix.settings.trusted-users = ["root" "tjota"];
 
   # Set your time zone.
   time.timeZone = "America/Sao_Paulo";
@@ -88,66 +89,16 @@
   # Enable automatic login for the user.
   services.getty.autologinUser = "tjota";
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    wget
-    git
-    nodejs
-    pkgs.alacritty
-    pkgs.zsh
-    pkgs.stow
-    pkgs.freerdp
-    pkgs.firefox
-    pkgs.gcc
-    pkgs.go
-    pkgs.cmake
-    pkgs.cargo
-    pkgs.rustc
-    pkgs.fzf
-    ripgrep
-    conky
     zoxide
   ];
 
   environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw 
-  environment.variables.TERMINAL = "alacritty";
-  services.displayManager.defaultSession = "none+i3";
-
-  services.xserver = {
-    enable = true;
-
-    desktopManager = {
-      xterm.enable = false;
-    };
-   
-
-    windowManager.i3 = {
-      enable = true;
-      extraPackages = with pkgs; [
-        dmenu #application launcher most people use
-        i3status # gives you the default i3 status bar
-        i3lock #default i3 screen locker
-     ];
-    };
-  };
-  services.xserver.windowManager.i3.package = pkgs.i3-gaps;
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
+  nix.settings.trusted-users = ["root" "tjota"];
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -162,13 +113,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-  };
-
-  programs.zsh.enable = true;
-
 }
