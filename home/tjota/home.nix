@@ -2,7 +2,7 @@
 # 
 # home-manager init ./
 
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -47,24 +47,8 @@
         source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/nvim/.config/nvim";
         force = true;
       };
-      ".config/i3" = {
-        source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/i3/.i3";
-        force = true;
-      };
-      ".i3status.conf" = {
-        source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/i3/.i3status.conf";
-        force = true;
-      };
       ".config/tmux" = {
         source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/tmux/.config/tmux";
-        force = true;
-      };
-      ".zshrc" = { 
-        source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/zsh/.zshrc"; 
-        force = true;
-      };
-      ".p10k.zsh" = {
-        source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/zsh/.p10k.zsh"; 
         force = true;
       };
       ".local/scripts/tmux-sessionizer" = {
