@@ -77,44 +77,6 @@
     packages = with pkgs; [];
   };
 
-  # home-manager.users.tjota = { pkgs, config, ... }: {
-  #   # The state version is required and should stay at the version you
-  #   # originally installed.
-  #   home.stateVersion = "23.11";
-  #
-  #   home.file = {
-  #     ".config/nvim" = {
-  #       source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/nvim/.config/nvim";
-  #       force = true;
-  #     };
-  #     ".config/i3" = {
-  #       source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/i3/.i3";
-  #       force = true;
-  #     };
-  #     ".i3status.conf" = {
-  #       source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/i3/.i3status.conf";
-  #       force = true;
-  #     };
-  #     ".config/tmux" = {
-  #       source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/tmux/.config/tmux";
-  #       force = true;
-  #     };
-  #     ".zshrc" = { 
-  #       source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/zsh/.zshrc"; 
-  #       force = true;
-  #     };
-  #     ".p10k.zsh" = {
-  #       source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/zsh/.p10k.zsh"; 
-  #       force = true;
-  #     };
-  #     ".local/scripts/tmux-sessionizer" = {
-  #       source = config.lib.file.mkOutOfStoreSymlink "/home/tjota/nixos-config/dotfiles/private_scripts/.local/scripts/tmux-sessionizer"; 
-  #       force = true;
-  #     };
-  #   };
-  # };
-
-
   users.defaultUserShell = pkgs.zsh;
 
   xdg.portal = {
@@ -122,7 +84,6 @@
     wlr.enable = true;
     config.common.default = "*";
   };
-
 
   # Enable automatic login for the user.
   services.getty.autologinUser = "tjota";
@@ -147,6 +108,7 @@
     pkgs.cargo
     pkgs.rustc
     pkgs.fzf
+    ripgrep
     conky
     zoxide
   ];
