@@ -40,6 +40,7 @@
   imports = [ ../common ./configuration.nix inputs.home-manager.nixosModules.home-manager];
   home-manager = {
     useUserPackages = true;
+    useGlobalPkgs = true;
     extraSpecialArgs = { inherit inputs outputs; };
     users.tjota =
       #import ../../home/tjota/${config.networking.hostName}.nix;
