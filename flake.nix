@@ -12,7 +12,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
-    #nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,8 +24,6 @@
     let
       inherit (self) outputs;
       systems = [
-        # "aarch64-linux"
-        # "i686-linux"
         "x86_64-linux"
         # "aarch64-darwin"
         # "x86_64-darwin"
