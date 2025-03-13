@@ -31,7 +31,7 @@
       experimental-features = "nix-command flakes";
       trusted-users = [
         "root"
-        "your-user"
+        "tjota"
       ]; # Set users that are allowed to use the flake command
     };
     gc = {
