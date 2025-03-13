@@ -36,7 +36,7 @@
 
 # networking.hostName = "nixos"; # Define your hostname.
 
-{ inputs, outputs, config, ...} : {
+{ inputs, outputs, config, lib, pkgs, ...} : {
   imports = [ ../common ./configuration.nix inputs.home-manager.nixosModules.home-manager];
   home-manager = {
     useUserPackages = true;
