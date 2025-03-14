@@ -66,7 +66,7 @@
             (extension "ignore-cookies" "jid1-KKzOGWgsW3Ao4Q@jetpack") # failed # Ignore cookie setting pop-ups
             (extension "privacy-badger17" "jid1-MnnxcxisBPnSXQ@jetpack")
             (extension "cookie-autodelete" "CookieAutoDelete@kennydo.com")
-            (extension "bitwarden-password-manager" "446900e4-71c2-419f-a6a7-df9c091e268b")
+            (extension "bitwarden-password-manager" "{446900e4-71c2-419f-a6a7-df9c091e268b}")
 
             # Layout / Themeing
             (extension "tree-style-tab" "treestyletab@piro.sakura.ne.jp")

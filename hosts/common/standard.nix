@@ -1,4 +1,4 @@
-{pkgs, ...}:{
+{ pkgs, ... }: {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -15,6 +15,8 @@
     wget
     git
     curl
+    unzip
+    gnutar
   ];
 
   services.openssh.enable = true;
