@@ -8,5 +8,6 @@
     kubectl
     k9s
     cloudlens
+    slack
   ];
 }
